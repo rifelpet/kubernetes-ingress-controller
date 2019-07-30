@@ -10,13 +10,13 @@ Kong Ingress Controller onto your Kubernetes cluster.
 
 ## Testing connectivity to Kong
 
-This guide assumes that `PROXY_IP` environment varialbe is
+This guide assumes that the `PROXY_IP` environment variable is
 set to contain the IP address or URL pointing to Kong.
-If you've not done so, please follow one of the
+Please follow one of the
 [deployment guides](../deployment) to configure this environment variable.
 
-If everything is setup correctly, making a request to Kong should return back
-a HTTP 404 Not Found.
+If everything is setup correctly, making a request to Kong should return
+HTTP 404 Not Found.
 
 ```bash
 $ curl -i $PROXY_IP
@@ -109,8 +109,8 @@ Kong will strip the path defined in the Ingress rule before proxying
 the request to the service.
 This can be seen in the real path value in the above response.
 
-Let's say, we would like to configure Kong to not do that and also
-respond to only GET request for this particular Ingress rule.
+We can configure Kong to not strip out this path and to only respond to GET requests
+for this particular Ingress rule.
 
 To modify these behaviours, let's first create a KongIngress resource
 defining the new behaviour:
@@ -246,7 +246,6 @@ $ curl -s $PROXY_IP/foo/hello-world | grep "pod IP"
 	pod IP:	10.60.0.9
 ```
 
-And that's it for this guide.
 
 You can experiement with various load balancing and healthchecking settings
 that KongIngress resource exposes to suite your specific use-case.

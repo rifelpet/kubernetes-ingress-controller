@@ -223,7 +223,7 @@ route:
 
 ## KongConsumer
 
-This custom resource configures a consumers in Kong:
+This custom resource configures a consumer in Kong:
 
 The following snippet shows the field available in the resource:
 

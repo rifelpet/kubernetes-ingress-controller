@@ -1,23 +1,23 @@
-# Provision consumers and credentials
+# Provisioning Consumers and Credentials
 
-In this guide, we will learn how to use KongConsumer and KongCredential
+This guide walks through how to use the KongConsumer and KongCredential resources to provision Consumers and associated credentials in Kong.
 resources can be used to provision Consumers and
 associated credentials in Kong.
 
 ## Installation
 
 Please follow the [deployment](../deployment) documentation to install
-Kong Ingress Controller onto your Kubernetes cluster.
+Kong Ingress Controller on your Kubernetes cluster.
 
-## Testing connectivity to Kong
+## Testing Connectivity to Kong
 
-This guide assumes that `PROXY_IP` environment varialbe is
+This guide assumes that the `PROXY_IP` environment variable is
 set to contain the IP address or URL pointing to Kong.
-If you've not done so, please follow one of the
+Please follow one of the
 [deployment guides](../deployment) to configure this environment variable.
 
-If everything is setup correctly, making a request to Kong should return back
-a HTTP 404 Not Found.
+If everything is setup correctly, making a request to Kong should return 
+HTTP 404 Not Found.
 
 ```bash
 $ curl -i $PROXY_IP
@@ -31,11 +31,11 @@ Server: kong/1.2.1
 {"message":"no Route matched with those values"}
 ```
 
-This is expected since Kong doesn't know how to proxy the request yet.
+This is expected as Kong doe not yet know how to proxy the request.
 
-## Setup a sample service
+## Setup a Sample Service
 
-For the purpose of this guide, we will setup a [httpbin](https://httpbin.org)
+For the purpose of this guide, we will setup an [httpbin](https://httpbin.org)
 service in the cluster and proxy it.
 
 ```bash
@@ -83,10 +83,10 @@ Via: kong/1.2.1
 
 ## Add authentication to the service
 
-With Kong, adding an authentication in front of an API is as simple as
+With Kong, adding authentication in front of an API is as simple as
 enabling a plugin.
 
-Let's add a KongPlugin resource to protect the API.
+Let's add a KongPlugin resource to protect the API:
 
 ```bash
 $ echo "
@@ -100,7 +100,7 @@ kongplugin.configuration.konghq.com/httpbin-auth created
 ```
 
 Now, associate this plugin with the previous Ingress rule we created
-using the `plugins.konghq.com` annotation.
+using the `plugins.konghq.com` annotation:
 
 ```bash
 $ echo "
@@ -140,7 +140,7 @@ Server: kong/1.2.1
 As you can see above, Kong returns back a `401 Unauthorized` because
 we didn't provide an API key.
 
-## Provision a consumer
+## Provision a Consumer
 
 Let's create a KongConsumer resource:
 
@@ -191,7 +191,7 @@ X-Kong-Proxy-Latency: 1
 Via: kong/1.2.1
 ```
 
-In this guide, we learnt how to leverage an authentication plugin in Kong
+In this guide, we learned how to leverage an authentication plugin in Kong
 and provision credentials. This enables you to offload authentication into
 your Ingress layer and keeps the application logic simple.
 
