@@ -6,9 +6,9 @@ It supports the following annotations:
 
 | Annotation name | Description | Guide |
 |-----------------|-------------|-------|
-| [`kubernetes.io/ingress.class`](#kubernetesioingressclass) | multiple ingres|
-| [`plugins.konghq.com`](#pluginskonghqcom) | multiple ingres|
-| [`configuration.konghq.com`](#configurationkonghqcom) | |
+| [`kubernetes.io/ingress.class`](#kubernetesioingressclass) | Restrict the Ingress rules that Kong should satisfy. | TODO |
+| [`plugins.konghq.com`](#pluginskonghqcom) | Run plugins for specific service or Ingress. | [Using KongPlugin resource](../guides/using-kongplugin-resource.md) |
+| [`configuration.konghq.com`](#configurationkonghqcom) | Fine grained routing and load-balancing. | [Using KongIngress resource](../guides/using-kongingress-resource.md)|
 
 ## `kubernetes.io/ingress.class`
 
