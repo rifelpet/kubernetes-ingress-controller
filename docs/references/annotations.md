@@ -35,7 +35,7 @@ spec:
           servicePort: 80
 ```
 
-will target the GCE controller, forcing Kong Ingress Controller to ignore it.
+This will target the GCE controller, forcing Kong Ingress Controller to ignore it.
 
 On the other hand, an annotation such as
 
